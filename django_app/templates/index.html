@@ -15,26 +15,43 @@
     <div class="mb-8">
         <a href="{% url 'admin:index' %}"
            class="block w-full bg-red-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-red-700 transition mb-6">
-            🔐 Django Admin
+            👨‍💻 Django Admin
         </a>
     </div>
+
+    <div class="mb-8">
+        <a href="{% url 'add_news' %}"
+           class="block w-full bg-purple-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-purple-700 transition mb-6">
+            📢 Add news
+        </a>
+    </div>
+
 
     <nav class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 mb-8">
         <a href="{% url 'categories' %}"
            class="bg-blue-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-blue-700 transition">
-            👏 Categories with Bootstrap
+            📚 Categories
         </a>
         <a href="{% url 'products' %}"
            class="bg-blue-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-blue-700 transition">
-            👏 Products with Bootstrap
+            ✅ Products
         </a>
         <a href="{% url 'suppliers' %}"
            class="bg-blue-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-blue-700 transition">
-            👏 Suppliers with Bootstrap
+            🔖 Suppliers
         </a>
-        <a href="{% url 'add_news' %}"
-           class="bg-green-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-blue-700 transition">
-            👏 Add news
+
+        <a href="{% url 'suppliers' %}"
+           class="bg-green-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-green-700 transition">
+            ➕ Add Category
+        </a>
+        <a href="{% url 'suppliers' %}"
+           class="bg-green-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-green-700 transition">
+            ➕ Add Product
+        </a>
+        <a href="{% url 'suppliers' %}"
+           class="bg-green-600 text-white text-center py-4 rounded-lg font-semibold hover:bg-green-700 transition">
+            ➕ Add Supplier
         </a>
     </nav>
 </div>
