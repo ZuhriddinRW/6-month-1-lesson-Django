@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .forms import NewsForm
+from .forms import *
 from .models import *
 
 
@@ -45,14 +45,53 @@ def suppliers(request) :
     return render ( request, 'suppliers.html', {'suppliers' : suppliers} )
 
 
-def add_news(request):
-    if request.method == 'POST':
-        print("==============", request.POST)
-        print("==============", request.FILES)
-        form = NewsForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-    else:
-        form = NewsForm()
-    return render(request, 'add_news.html', {'form': form})
+def add_news(request) :
+    if request.method == 'POST' :
+        print ( "==============", request.POST )
+        print ( "==============", request.FILES )
+        form = NewsForm ( request.POST, request.FILES )
+        if form.is_valid () :
+            form.save ()
+            return redirect ( 'index' )
+    else :
+        form = NewsForm ()
+    return render ( request, 'add_news.html', {'form' : form} )
+
+
+def add_category(request) :
+    if request.method == 'POST' :
+        print ( "==============", request.POST )
+        print ( "==============", request.FILES )
+        form = CategoryForm ( request.POST, request.FILES )
+        if form.is_valid () :
+            form.save ()
+            return redirect ( 'index' )
+    else :
+        form = CategoryForm ()
+    return render ( request, 'add_category.html', {'form' : form} )
+
+
+def add_product(request) :
+    if request.method == 'POST' :
+        print ( "==============", request.POST )
+        print ( "==============", request.FILES )
+        form = ProductForm ( request.POST, request.FILES )
+        if form.is_valid () :
+            form.save ()
+            return redirect ( 'index' )
+    else :
+        form = ProductForm ()
+    return render ( request, 'add_product.html', {'form' : form} )
+
+
+def add_supplier(request) :
+    if request.method == 'POST' :
+        print ( "==============", request.POST )
+        print ( "==============", request.FILES )
+        form = SupplierForm ( request.POST, request.FILES )
+        if form.is_valid () :
+            form.save ()
+            return redirect ( 'index' )
+    else :
+        form = SupplierForm ()
+    return render ( request, 'add_supplier.html', {'form' : form} )
