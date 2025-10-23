@@ -10,7 +10,6 @@ class NewsForm(forms.ModelForm):
     class Meta:
         model = News
         fields = '__all__'
-        # fields = ['title', 'context', 'is_bool', 'category']
         widgets = {
             'title': forms.TextInput(attrs = {'class': 'form-control'}),
             'context': forms.Textarea(attrs = {'class': 'form-control', 'rows': 5}),
