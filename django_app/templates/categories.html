@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5 mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary m-0">Categories</h2>
+        <a href="{% url 'index' %}" class="btn btn-outline-secondary">
+            ← Back
+        </a>
+    </div>
+
+    <div class="list-group mx-auto mb-4" style="width: fit-content;">
+        <a href="{% url 'categories' %}" class="text-decoration-none">
+            <button type="button"
+                    class="list-group-item list-group-item-action {% if request.resolver_match.url_name == 'categories' %}active{% endif %}">
+                All Categories
+            </button>
+        </a>
+        {% for category in categories %}
+        <a href="{% url 'categories_by_id' category.category_id %}" class="text-decoration-none">
+            <button type="button"
+                    class="list-group-item list-group-item-action {% if request.resolver_match.url_name == 'categories_by_id' and request.resolver_match.kwargs.category_id == category.category_id %}active{% endif %}">
+                {{ category.category_name }}
+            </button>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for category in categories %}
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                {% if category.image %}
+                <img src="{{category.image.url}}" class="card-img-top w-100"
+                     style="height: 250px; object-fit: contain; background-color: #f8f9fa;"
+                     alt="{{category.category_name}}">
+                {% else %}
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAo45ijpKY-jKZYb_8fbkIj5-SC4_X9hPGmA&s"
+                     class="card-img-top w-100" style="height: 250px; object-fit: contain; background-color: #f8f9fa;"
+                     alt="Category image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{category.category_name}}</h5>
+                    <p class="card-text mb-2">
+                        <span class="fw-semibold">Description:</span>
+                        <span class="badge bg-primary">{{category.description}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+</html>

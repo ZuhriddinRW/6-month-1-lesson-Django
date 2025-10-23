@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suppliers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5 mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary m-0">Suppliers</h2>
+        <a href="javascript:history.back()" class="btn btn-outline-secondary">
+            ← Back
+        </a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for supplier in suppliers %}
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                {% if supplier.image %}
+                <img src="{{supplier.image.url}}" class="card-img-top" alt="{{product.product_name}}">
+                {% else %}
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlOVMFIxIQrDRyTz_k5-R5rI5tVZEYrjNcJw&s"
+                     class="card-img-top" alt="Product image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Supplier ID: {{supplier.supplier_id}}</h5>
+                    <p class="card-text mb-2">
+                        <span class="fw-semibold">Company Name:</span>
+                        <span class="text-success fw-bold">{{supplier.company_name}}</span>
+                    </p>
+                    <p class="card-text mb-2">
+                        <span class="fw-semibold">Contact Name:</span>
+                        <span class="text-success fw-bold">{{supplier.contact_name}}</span>
+                    </p>
+                    <p class="card-text mb-2">
+                        <span class="fw-semibold">Contact Title:</span>
+                        <span class="text-success fw-bold">{{supplier.contact_title}}</span>
+                    </p>
+                    <p class="card-text mb-2">
+                        <span class="fw-semibold">Address:</span>
+                        <span class="text-success fw-bold">{{supplier.address}}</span>
+                    </p>
+                    <p class="card-text mb-2">
+                        <span class="fw-semibold">City:</span>
+                        <span class="text-success fw-bold">{{supplier.city}}</span>
+                    </p>
+                    <p class="card-text mb-2">
+                        <span class="fw-semibold">Region:</span>
+                        <span class="text-success fw-bold">{{supplier.region}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
