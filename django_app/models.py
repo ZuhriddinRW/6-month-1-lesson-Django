@@ -34,8 +34,8 @@ class Supplier ( models.Model ) :
     image = models.ImageField ( upload_to='photo/%Y/%m/%d', blank=True, null=True )
 
 class News(models.Model):
-    title = models.CharField(max_length=100, verbose_name='Sarlavha')
-    content = models.TextField(blank=True, null=True, verbose_name='Text')
+    title = models.CharField(max_length=100, verbose_name='Title')
+    content = models.TextField(blank=True, null=True, verbose_name='Content')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Add_date')
     updated_at = models.DateTimeField(auto_now=True)
     photo = models.ImageField(upload_to='photo/%Y/%m/%d', blank=True, null=True)
